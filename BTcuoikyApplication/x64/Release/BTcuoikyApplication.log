@@ -1,13 +1,4 @@
-﻿  AccountDTO.cpp
-  AccountRepo.cpp
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244: 'argument': conversion from 'const time_t' to 'const _Elem', possible loss of data
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         with
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         [
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:             _Elem=char
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         ]
-  (compiling source file 'AccountRepo.cpp')
-  
-  AccountService.cpp
+﻿  AccountService.cpp
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244: 'argument': conversion from 'const time_t' to 'const _Elem', possible loss of data
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         with
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         [
@@ -15,9 +6,9 @@ D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17):
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         ]
   (compiling source file 'AccountService.cpp')
   
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(32,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(143,32): warning C4101: 'e': unreferenced local variable
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(307,32): warning C4101: 'e': unreferenced local variable
+D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(38,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(150,32): warning C4101: 'e': unreferenced local variable
+D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(315,32): warning C4101: 'e': unreferenced local variable
   BTcuoikyApplication.cpp
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244: 'argument': conversion from 'const time_t' to 'const _Elem', possible loss of data
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         with
@@ -26,20 +17,20 @@ D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17):
 D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountEntity.cpp(58,17): warning C4244:         ]
   (compiling source file 'BTcuoikyApplication.cpp')
   
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(32,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(38,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   (compiling source file 'BTcuoikyApplication.cpp')
   
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(143,32): warning C4101: 'e': unreferenced local variable
+D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(150,32): warning C4101: 'e': unreferenced local variable
   (compiling source file 'BTcuoikyApplication.cpp')
   
-D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(307,32): warning C4101: 'e': unreferenced local variable
+D:\hoc_tap\c++\BTcuoikyApplication\BTcuoikyApplication\AccountService.cpp(315,32): warning C4101: 'e': unreferenced local variable
   (compiling source file 'BTcuoikyApplication.cpp')
   
      Creating library D:\hoc_tap\c++\BTcuoikyApplication\x64\Release\BTcuoikyApplication.lib and object D:\hoc_tap\c++\BTcuoikyApplication\x64\Release\BTcuoikyApplication.exp
   Generating code
-  370 of 501 functions (73.9%) were compiled, the rest were copied from previous compilation.
-    166 functions were new in current compilation
-    32 functions had inline decision re-evaluated but remain unchanged
+  106 of 587 functions (18.1%) were compiled, the rest were copied from previous compilation.
+    87 functions were new in current compilation
+    142 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at ''; linking object as if no debug info

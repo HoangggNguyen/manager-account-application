@@ -11,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|solutionrelative:BTcuoikyApplication\\BTcuoikyApplication.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\WalletEntity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|solutionrelative:BTcuoikyApplication\\WalletEntity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\AccountEntity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|solutionrelative:BTcuoikyApplication\\AccountEntity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\PersonalUser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|solutionrelative:BTcuoikyApplication\\PersonalUser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\AccountRepo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|solutionrelative:BTcuoikyApplication\\AccountRepo.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\PersonalUser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|solutionrelative:BTcuoikyApplication\\PersonalUser.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B9FD1820-0492-4523-8830-BD84B75D3649}|BTcuoikyApplication\\BTcuoikyApplication.vcxproj|D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\Database.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,7 +46,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Database.cpp",
               "DocumentMoniker": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\Database.cpp",
               "RelativeDocumentMoniker": "BTcuoikyApplication\\Database.cpp",
@@ -60,14 +64,14 @@
               "RelativeDocumentMoniker": "BTcuoikyApplication\\BTcuoikyApplication.cpp",
               "ToolTip": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\BTcuoikyApplication.cpp",
               "RelativeToolTip": "BTcuoikyApplication\\BTcuoikyApplication.cpp",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAAAKwAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAH4AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-07T08:10:23.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Database.h",
               "DocumentMoniker": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\Database.h",
               "RelativeDocumentMoniker": "BTcuoikyApplication\\Database.h",
@@ -81,11 +85,23 @@
         },
         {
           "DockedWidth": 198,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "WalletEntity.cpp",
+              "DocumentMoniker": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\WalletEntity.cpp",
+              "RelativeDocumentMoniker": "BTcuoikyApplication\\WalletEntity.cpp",
+              "ToolTip": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\WalletEntity.cpp",
+              "RelativeToolTip": "BTcuoikyApplication\\WalletEntity.cpp",
+              "ViewState": "AgIAABgAAAAAAAAAAAAEwCoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-19T12:03:43.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AccountEntity.cpp",
               "DocumentMoniker": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\AccountEntity.cpp",
               "RelativeDocumentMoniker": "BTcuoikyApplication\\AccountEntity.cpp",
@@ -93,12 +109,11 @@
               "RelativeToolTip": "BTcuoikyApplication\\AccountEntity.cpp",
               "ViewState": "AgIAABsAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-07T07:45:24.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T07:45:24.108Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PersonalUser.cpp",
               "DocumentMoniker": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\PersonalUser.cpp",
               "RelativeDocumentMoniker": "BTcuoikyApplication\\PersonalUser.cpp",
@@ -116,7 +131,7 @@
               "RelativeDocumentMoniker": "BTcuoikyApplication\\AccountService.cpp",
               "ToolTip": "D:\\hoc_tap\\c\u002B\u002B\\BTcuoikyApplication\\BTcuoikyApplication\\AccountService.cpp",
               "RelativeToolTip": "BTcuoikyApplication\\AccountService.cpp",
-              "ViewState": "AgIAADMBAAAAAAAAAAAAAEABAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAhwCUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-07T07:50:57.524Z",
               "EditorCaption": ""

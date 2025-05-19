@@ -27,7 +27,7 @@ public:
 		return decrypted;
 	}
 
-	string generateRandom(std::string& type) {
+	string generateRandom(const std::string& type) {
 		const char* chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		if (type == "number") {
 			chars = "0123456789";
@@ -409,8 +409,8 @@ public:
 			amountRecive = amount - amountInput;
 		}
 		std::cout << "Nhap so otp" << std::endl;
-		std::string type = "number";
-		std::string otp = generateRandom(type);
+		std::string typeOtp = "number";
+		std::string otp = generateRandom(typeOtp);
 		std::cout << otp << std::endl;
 		std::cin >> otpInput;
 		if (otp != otpInput) {
