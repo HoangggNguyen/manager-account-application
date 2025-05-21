@@ -123,6 +123,7 @@ public:
 				accountResp.setUserName(res->getString("user_name"));
 				accountResp.setPassword(res->getString("password"));
 				accountResp.setIsActive(res->getBoolean("is_active") == 1 ? true : false);
+				accountResp.setIsAdmin(res->getBoolean("is_admin") == 1 ? true : false);
 				accountResp.setMaker(res->getString("maker"));
 
 				//std::cout << "Username: " << res->getString("user_name") << std::endl;

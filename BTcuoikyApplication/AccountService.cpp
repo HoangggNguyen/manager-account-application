@@ -172,7 +172,7 @@ public:
 			std::cin >> newPassWord;
 
 			std::cout << "Nhap lai mat khau moi: ";
-			std::string confirmPass;
+			std::cin >> confirmPass;
 
 			std::string otpInput;
 
@@ -187,8 +187,8 @@ public:
 				return;
 			}
 
-			passWord = encrypt(passWord, accountEntity.getUserName());
-			if (accountEntity.getPassword() != passWord) {
+			std::string passDecrypt = decrypt(accountEntity.getPassword(), accountEntity.getUserName());
+			if (passDecrypt != passWord) {
 				std::cout << "Mat khau cu khong dung." << std::endl;
 				return;
 			}
