@@ -387,46 +387,45 @@ public:
 		else {
 			std::cout << "Thao tac that bai" << std::endl;
 		}
-		
+
 	}
 
-	void updateAmountWallet(std::string& numWallet, double& amount, std::string& type) {
-		double amountInput = 0;
+	bool updateAmountWallet(std::string& numWallet, double& amount, std::string& type, double& amountInput) {
 		double amountRecive = 0;
 		bool isConfirm = false;
 		std::string otpInput;
 
-		if (type == "nap") {
-			std::cout << "Nhap so diem muon nap them" << std::endl;
-			std::cin >> amountInput;
+		if (type == "nap" || type == "nhan") {
 			amountRecive = amount + amountInput;
 		}
 		else {
-			std::cout << "Nhap so diem muon chuyen" << std::endl;
-			std::cin >> amountInput;
-			if (amountInput < amount) {
+			if (amountInput > amount) {
 				std::cout << "So du diem trong vi khong du" << std::endl;
-				return;
+				return false;
 			}
 			amountRecive = amount - amountInput;
 		}
-		std::cout << "Nhap so otp" << std::endl;
-		std::string typeOtp = "number";
-		std::string otp = generateRandom(typeOtp);
-		std::cout << otp << std::endl;
-		std::cin >> otpInput;
-		if (otp != otpInput) {
-			std::cout << "So otp khong khop" << std::endl;
-			return;
-		}
-		else {
-			isConfirm = true;
+
+		if (type != "nhan") {
+			std::cout << "Nhap so otp" << std::endl;
+			std::string typeOtp = "number";
+			std::string otp = generateRandom(typeOtp);
+			std::cout << otp << std::endl;
+			std::cin >> otpInput;
+			if (otp != otpInput) {
+				std::cout << "So otp khong khop" << std::endl;
+				return false;
+			}
+			else {
+				isConfirm = true;
+			}
 		}
 
-		if (isConfirm) {
+		if (isConfirm || type == "nhan") {
 			walletRepository.updateAmountWallet(numWallet, amountRecive);
 			std::cout << "Thao tac thanh cong" << std::endl;
 		}
+		return true;
 	}
 
 	WalletEntity getDetailWallet(int& id) {
@@ -448,28 +447,30 @@ public:
 		std::cout << "Tinh trang: " << walletEntity.getIsActive() << std::endl;
 	}
 
-	void transferPoints(const WalletEntity& walletEntity) {
-		std::string numWall;
+	void transferPoints(const WalletEntity& walletEntity, double& amountInput, std::string& numWall) {
 		std::string numWallTransfer = walletEntity.getNumWallet();
 		double amount = walletEntity.getAmount();
 		std::string type = "chuyen";
 
-		std::cout << "Nhap so vi nhan" << std::endl;
-		std::cin >> numWall;
 		WalletEntity walletEntityRecive = getDetailWalletByNumWall(numWall);
 
+		if (walletEntityRecive.getIsActive() == "Da Khoa") {
+			std::cout << "Vi nhan da bi khoa" << std::endl;
+			return;
+		}
 
 		if (walletEntityRecive.getId() == 0) {
 			std::cout << "Khong tim thay vi" << std::endl;
 			return;
 		}
-		//cap nhat so du vi chuyen
-		updateAmountWallet(numWallTransfer, amount, type);
-		//cap nhat so du vi nhan
-		type = "nhan";
-		double amountRecive = walletEntityRecive.getAmount();
-		updateAmountWallet(numWall, amountRecive, type);
-		std::cout << "Chuyen diem thanh cong" << std::endl;
-	}
 
+		//cap nhat so du vi chuyen
+		bool isTransferSuccess = updateAmountWallet(numWallTransfer, amount, type, amountInput);
+		if (isTransferSuccess) {
+			type = "nhan";
+			double amountRecive = walletEntityRecive.getAmount();
+			//cap nhat so du vi nhan
+			updateAmountWallet(numWall, amountRecive, type, amountInput);
+		}
+	}
 };

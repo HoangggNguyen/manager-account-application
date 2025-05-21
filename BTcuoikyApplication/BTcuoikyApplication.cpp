@@ -45,6 +45,7 @@ void handleWalletMenu(AccountService& accountService, int accountId,
 				std::string numWalletInput;
 				int id;
 				bool isActive = false;
+				double amountInput = 0;
 
 				std::cout << "Nhap so vi muon xem chi tiet: ";
 				std::getline(std::cin, numWalletInput);
@@ -64,8 +65,9 @@ void handleWalletMenu(AccountService& accountService, int accountId,
 									numWallet = walletEntity.getNumWallet();
 									amount = walletEntity.getAmount();
 									type = "nap";
-
-									accountService.updateAmountWallet(numWallet, amount, type);
+									std::cout << "Nhap so diem muon nap them" << std::endl;
+									std::cin >> amountInput;
+									accountService.updateAmountWallet(numWallet, amount, type, amountInput);
 								}
 								else {
 									std::cout << "Tai khoan da bi khoa" << std::endl;
@@ -73,7 +75,12 @@ void handleWalletMenu(AccountService& accountService, int accountId,
 								break;
 							case 3:
 								if (isActive) {
-									accountService.transferPoints(walletEntity);
+									std::cout << "Nhap so vi nhan" << std::endl;
+									std::cin >> numWallet;
+
+									std::cout << "Nhap so diem muon chuyen" << std::endl;
+									std::cin >> amountInput;
+									accountService.transferPoints(walletEntity, amountInput, numWallet);
 								}
 								else {
 									std::cout << "Tai khoan da bi khoa" << std::endl;
