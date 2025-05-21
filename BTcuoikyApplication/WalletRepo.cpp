@@ -14,7 +14,7 @@ private:
 public:
 	void createWallet(int& accountId, double& amount, std::string& numWallet) {
 		try {
-			sql::PreparedStatement* pstmt = con->prepareStatement("INSERT INTO wallet(num_walltet,account_id, amount, is_active) VALUES (?,?, ?, ?)");
+			sql::PreparedStatement* pstmt = con->prepareStatement("INSERT INTO wallet(num_wallet,account_id, amount, is_active) VALUES (?,?, ?, ?)");
 			pstmt->setString(1, numWallet);
 			pstmt->setInt(2, accountId);
 			pstmt->setDouble(3, amount);
@@ -40,7 +40,7 @@ public:
 			return;
 		}
 	}
-	void lockWallet(int& id, bool& isActive) {
+	bool lockWallet(int& id, bool& isActive) {
 		try {
 			sql::PreparedStatement* pstmt = con->prepareStatement("UPDATE wallet SET is_active = ? WHERE id = ?");
 			pstmt->setBoolean(1, isActive);
@@ -50,21 +50,23 @@ public:
 		}
 		catch (const sql::SQLException& e) {
 			std::cerr << "SQL Error: " << e.what() << std::endl;
-			return;
+			return false;
 		}
+
+		return true;
 	}
 
-	std::vector<WalletEntity> findAllActiveWallets(const int& accountId) {
+	std::vector<WalletEntity> findAllWallets(const int& accountId) {
 		std::vector<WalletEntity> wallets;
 		try {
-			sql::PreparedStatement* pstmt = con->prepareStatement("SELECT * FROM wallet WHERE is_active = true and account_id = ?");
-			pstmt->setBoolean(1, accountId);
+			sql::PreparedStatement* pstmt = con->prepareStatement("SELECT * FROM wallet WHERE account_id = ?");
+			pstmt->setInt(1, accountId);
 
 			sql::ResultSet* res = pstmt->executeQuery();
 			while (res->next()) {
 				WalletEntity walletResp = WalletEntity();
 				walletResp.setId(res->getInt("id"));
-				walletResp.setNumWallet(res->getString("num_walltet"));
+				walletResp.setNumWallet(res->getString("num_wallet"));
 				walletResp.setAccountId(res->getInt("account_id"));
 				walletResp.setIsActive(res->getBoolean("is_active") == 1 ? "Hoat dong" : "Da Khoa");
 				walletResp.setAmount(res->getDouble("amount"));
@@ -87,10 +89,10 @@ public:
 			sql::ResultSet* res = pstmt->executeQuery();
 			if (res->next()) {
 				walletResp.setId(res->getInt("id"));
-				walletResp.setNumWallet(res->getString("num_walltet"));
+				walletResp.setNumWallet(res->getString("num_wallet"));
 				walletResp.setAccountId(res->getInt("account_id"));
 				walletResp.setIsActive(res->getBoolean("is_active") == 1 ? "Hoat dong" : "Da Khoa");
-				walletResp.setAmount(res->getDouble("amount"));
+				walletResp.setAmount(std::stod(res->getString("amount")));
 			}
 			delete res;
 			delete pstmt;
@@ -104,12 +106,12 @@ public:
 	WalletEntity getDetailWalletByNumWall(const std::string& numWall) {
 		WalletEntity walletResp = WalletEntity();
 		try {
-			sql::PreparedStatement* pstmt = con->prepareStatement("SELECT * FROM wallet WHERE num_wallet = ? and is_active = true");
+			sql::PreparedStatement* pstmt = con->prepareStatement("SELECT * FROM wallet WHERE num_wallet = ?");
 			pstmt->setString(1, numWall);
 			sql::ResultSet* res = pstmt->executeQuery();
 			if (res->next()) {
 				walletResp.setId(res->getInt("id"));
-				walletResp.setNumWallet(res->getString("num_walltet"));
+				walletResp.setNumWallet(res->getString("num_wallet"));
 				walletResp.setAccountId(res->getInt("account_id"));
 				walletResp.setIsActive(res->getBoolean("is_active") == 1 ? "Hoat dong" : "Da Khoa");
 				walletResp.setAmount(res->getDouble("amount"));

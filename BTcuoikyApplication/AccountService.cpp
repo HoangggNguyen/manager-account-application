@@ -187,8 +187,7 @@ public:
 				return;
 			}
 
-			std::string passDecrypt = decrypt(accountEntity.getPassword(), accountEntity.getUserName());
-			if (passDecrypt != passWord) {
+			if (accountEntity.getPassword() != passWord) {
 				std::cout << "Mat khau cu khong dung." << std::endl;
 				return;
 			}
@@ -353,39 +352,42 @@ public:
 
 	void createWallet(int& accountId) {
 		double amount = 0;
-		std::cout << "Nhap so diem muon nap";
-		std::cin >> amount;
 		std::string type = "number";
 		std::string numWall = generateRandom(type);
 
 		walletRepository.createWallet(accountId, amount, numWall);
-
 	}
 
-	void getWalletByAccountId(int& accountId) {
-		std::vector<WalletEntity> walletEntities = walletRepository.findAllActiveWallets(accountId);
+	bool getWalletByAccountId(int& accountId) {
+		std::vector<WalletEntity> walletEntities = walletRepository.findAllWallets(accountId);
 		if (walletEntities.empty()) {
 			std::cout << "Khong tim thay vi diem." << std::endl;
-			return;
+			return false;
 		}
 		for (const auto& wallet : walletEntities) {
 			std::cout << "So vi: " << wallet.getNumWallet() << std::endl;
 			std::cout << "So diem: " << wallet.getAmount() << std::endl;
 			std::cout << "Tinh trang: " << wallet.getIsActive() << std::endl;
 		}
+		return true;
 	}
 
-	void lockOrUnlockWallet(const WalletEntity& walletEntity) {
-		int id = walletEntity.getId();
-		bool isActive = walletEntity.getIsActive() == "Hoat dong" ? true : false;
+	void lockOrUnlockWallet(int& id, bool& isActive) {
+		isActive = !isActive;
+		bool isSuccess = walletRepository.lockWallet(id, isActive);
 
-		walletRepository.lockWallet(id, isActive);
-		if (isActive) {
-			std::cout << "Khoa vi thanh cong" << std::endl;
+		if (isSuccess) {
+			if (isActive) {
+				std::cout << "Mo khoa vi thanh cong" << std::endl;
+			}
+			else {
+				std::cout << "Khoa vi thanh cong" << std::endl;
+			}
 		}
 		else {
-			std::cout << "Mo khoa vi thanh cong" << std::endl;
+			std::cout << "Thao tac that bai" << std::endl;
 		}
+		
 	}
 
 	void updateAmountWallet(std::string& numWallet, double& amount, std::string& type) {

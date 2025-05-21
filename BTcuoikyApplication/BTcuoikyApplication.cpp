@@ -40,46 +40,62 @@ void handleWalletMenu(AccountService& accountService, int accountId,
 			accountService.createWallet(accountId);
 			break;
 		case 2: {
-			accountService.getWalletByAccountId(accountId);
-			std::cin.ignore();
-			std::string walletIdInput;
-			std::cout << "Nhap so vi muon xem chi tiet: ";
-			std::getline(std::cin, walletIdInput);
-			if (!walletIdInput.empty()) {
-				int walletId = std::stoi(walletIdInput);
-				WalletEntity walletEntity = accountService.getDetailWallet(walletId);
-				if (walletEntity.getId() != 0) {
-					bool isInWallet = true;
-					while (isInWallet) {
-						int detailChoice = printMenu(walletDetailMenu);
-						switch (detailChoice) {
-						case 1:
-							accountService.printInfoWallet(walletEntity);
-							break;
-						case 2:
-							numWallet = walletEntity.getNumWallet();
-							amount = walletEntity.getAmount();
-							type = "nap";
+			if (accountService.getWalletByAccountId(accountId)) {
+				std::cin.ignore();
+				std::string numWalletInput;
+				int id;
+				bool isActive = false;
 
-							accountService.updateAmountWallet(numWallet, amount, type);
-							break;
-						case 3:
-							accountService.transferPoints(walletEntity);
-							break;
-						case 4:
-							accountService.lockOrUnlockWallet(walletEntity);
-							break;
-						case 5:
-							isInWallet = false;
-							break;
-						case 6:
-							exit(0);
-						default:
-							std::cout << "Lua chon khong phu hop." << std::endl;
+				std::cout << "Nhap so vi muon xem chi tiet: ";
+				std::getline(std::cin, numWalletInput);
+				if (!numWalletInput.empty()) {
+					WalletEntity walletEntity = accountService.getDetailWalletByNumWall(numWalletInput);
+					isActive = walletEntity.getIsActive() == "Hoat dong" ? true : false;
+					if (walletEntity.getId() != 0) {
+						bool isInWallet = true;
+						while (isInWallet) {
+							int detailChoice = printMenu(walletDetailMenu);
+							switch (detailChoice) {
+							case 1:
+								accountService.printInfoWallet(walletEntity);
+								break;
+							case 2:
+								if (isActive) {
+									numWallet = walletEntity.getNumWallet();
+									amount = walletEntity.getAmount();
+									type = "nap";
+
+									accountService.updateAmountWallet(numWallet, amount, type);
+								}
+								else {
+									std::cout << "Tai khoan da bi khoa" << std::endl;
+								}
+								break;
+							case 3:
+								if (isActive) {
+									accountService.transferPoints(walletEntity);
+								}
+								else {
+									std::cout << "Tai khoan da bi khoa" << std::endl;
+								}
+								break;
+							case 4:
+								id = walletEntity.getId();
+								accountService.lockOrUnlockWallet(id, isActive);
+								break;
+							case 5:
+								isInWallet = false;
+								break;
+							case 6:
+								exit(0);
+							default:
+								std::cout << "Lua chon khong phu hop." << std::endl;
+							}
 						}
 					}
 				}
 			}
+
 			break;
 		}
 		case 3:
@@ -193,7 +209,7 @@ int main() {
 						std::cout << "Nhap ten tai khoan user: ";
 						std::cin >> userName;
 						AccountEntity userToEdit = accountService.getAccountByUserName(userName);
-						
+
 						if (userToEdit.getUserName().empty()) {
 							std::cout << "Khong tim thay tai khoan." << std::endl;
 						}
